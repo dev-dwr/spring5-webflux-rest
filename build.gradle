@@ -19,6 +19,8 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
     testImplementation 'io.projectreactor:reactor-test'
 }
 
