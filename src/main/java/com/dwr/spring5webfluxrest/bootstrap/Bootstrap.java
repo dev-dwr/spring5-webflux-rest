@@ -19,11 +19,14 @@ public class Bootstrap implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
+
             loadCategories();
             loadVendors();
 
     }
     private void loadCategories(){
+        categoryRepository.deleteAll().block();
+
         categoryRepository.save(Category.builder()
                 .description("Fruits").build()).block();
 
@@ -43,6 +46,8 @@ public class Bootstrap implements CommandLineRunner {
         System.out.println("Categories Loaded = " + categoryRepository.count().block() );
     }
     private void loadVendors(){
+        vendorRepository.deleteAll().block();
+
         vendorRepository.save(Vendor.builder().firstName("Joe").lastName("Mama").build()).block();
         vendorRepository.save(Vendor.builder().firstName("Ann").lastName("Ham").build()).block();
         vendorRepository.save(Vendor.builder().firstName("Dave").lastName("Scott").build()).block();
